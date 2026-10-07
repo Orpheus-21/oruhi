@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools for Oruhi</title>
+<meta name="description" content="The command line tools for Oruhi, with real output: lookup, compose, gloss, number, ring, and font. A box in the page writes the ring script.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<!--gen:nav--><nav class="site" aria-label="Pages"><a class="brand" href="index.html"><span class="ring" lang="x-oruhi">Oruhi</span><span class="sr">Oruhi</span></a><ul><li><a href="index.html">Home</a></li><li><a href="sounds.html">Sounds</a></li><li><a href="script.html">Script</a></li><li><a href="grammar.html">Grammar</a></li><li><a href="numbers.html">Numbers</a></li><li><a href="lexicon.html">Lexicon</a></li><li><a href="texts.html">Texts</a></li><li><a href="tools.html" aria-current="page">Tools</a></li><li><a href="about.html">About</a></li></ul></nav><!--/gen:nav-->
+<main id="main" class="wrap">
+  <p class="kicker">Tools</p>
+  <h1>Tools</h1>
+  <p class="lead">Small Python scripts make, read, and check the language. They use only the standard library. The font build also needs <code>fonttools</code>.</p>
+
+  <h2>Write in rings</h2>
+  <p>Type Oruhi in Latin spelling. The font draws the rings. A holy word starts with a capital letter. Try <code>Oruo</code> or <code>kisa Oru</code>.</p>
+  <div class="controls">
+    <div><label for="try-in">Oruhi spelling</label><input id="try-in" type="text" value="Oruo minuni punupiha." autocomplete="off" spellcheck="false"></div>
+  </div>
+  <div class="out" aria-live="polite">
+    <span class="ring" id="try-out" lang="x-oruhi"></span>
+    <p id="try-msg"></p>
+  </div>
+
+  <h2>Command line</h2>
+  <p>Get the source and run the tools from the folder of the project. The output below is real. A script made this page and ran each command.</p>
+  <pre class="plain"><code>git clone https://github.com/Orpheus-21/oruhi.git
+cd oruhi
+python3 src/cli.py --help</code></pre>
+
+  <h3>lookup</h3>
+  <p>Find a word by its form or by its English gloss.</p>
+  <!--gen:cli lookup--><figure class="term"><figcaption><code>python3 src/cli.py lookup water</code></figcaption><pre><code>kana         n     water</code></pre></figure><!--/gen:cli-->
+  <h3>compose</h3>
+  <p>Write Oruhi from tokens. A token is a gloss, then affix labels with hyphens. This is the translator of the language. It works word by word and it does not read English.</p>
+  <!--gen:cli compose--><figure class="term"><figcaption><code>python3 src/cli.py compose &quot;I water-ACC drink-PAST-NEG&quot;</code></figcaption><pre><code>minu  kanani     karatanahu
+minu  kana-ni    kara-ta-nahu
+I     water-ACC  drink-PAST-NEG
+minu kanani karatanahu.</code></pre></figure><!--/gen:cli-->
+  <h3>gloss</h3>
+  <p>Read an Oruhi sentence. The tool shows the parts of each word and the gloss. It prints a note when a word has more than one reading.</p>
+  <!--gen:cli gloss--><figure class="term"><figcaption><code>python3 src/cli.py gloss &quot;Ohisa Nihuro&quot;</code></figcaption><pre><code>Ohisa  Nihuro
+ohisa  nihuro
+void   endless</code></pre></figure><!--/gen:cli-->
+  <h3>number</h3>
+  <p>Convert a number between base 10, base 8, and Oruhi words. The input can be digits or Oruhi words in quotes.</p>
+  <!--gen:cli number--><figure class="term"><figcaption><code>python3 src/cli.py number 205</code></figcaption><pre><code>decimal 205
+base 8  315
+Oruhi   nuru kisa sapi</code></pre></figure><figure class="term"><figcaption><code>python3 src/cli.py number &quot;pitu Oru sapi&quot;</code></figcaption><pre><code>decimal 133
+base 8  205
+Oruhi   pitu Oru sapi</code></pre></figure><!--/gen:cli-->
+
+  <h3>ring</h3>
+  <p>Write text as an SVG image. Add <code>--spiral</code> for a spiral. Add <code>-o file.svg</code> to write a file.</p>
+  <pre class="plain"><code>python3 src/cli.py ring --spiral "Oruo minuni punupiha." -o prayer.svg</code></pre>
+  <h3>font</h3>
+  <p>Build the font file. This command needs <code>fonttools</code>.</p>
+  <pre class="plain"><code>python3 -m venv .venv
+.venv/bin/pip install fonttools
+.venv/bin/python src/cli.py font</code></pre>
+
+  <h2>The check</h2>
+  <p>One script checks the whole language. Run it after any change to the data.</p>
+  <pre class="plain"><code>.venv/bin/python src/check.py</code></pre>
+  <p>The check tests these things:</p>
+  <ul class="plain">
+    <li>Every word follows the syllable rules.</li>
+    <li>Only holy words contain the vowel <code>o</code>.</li>
+    <li>No two words share a form or a gloss.</li>
+    <li>Every word with every legal row of affixes gives a legal word with exactly one reading.</li>
+    <li>Every number from 0 to 4095 reads back to itself.</li>
+    <li>Every sample sentence composes and parses back to the same parts.</li>
+    <li>Every syllable has a glyph, and no two glyphs look the same.</li>
+    <li>The font builds and holds all 32 ligatures.</li>
+  </ul>
+  <h3>The limits of the translator</h3>
+  <p>The tool works word by word. It cannot translate English text. It does not guess a word that is missing from the lexicon. A gloss with two words needs an underscore, such as <code>great_empty</code>.</p>
+</main>
+<!--gen:footer--><footer class="site"><p>Oruhi is a constructed language. The data, the tools, and this site are free software under the GNU General Public License, version 3 or any later version.</p><p><a href="https://github.com/Orpheus-21/oruhi">Source code on GitHub</a></p></footer><!--/gen:footer-->
+<script src="oruhi.js"></script>
+</body>
+</html>

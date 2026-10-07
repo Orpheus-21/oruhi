@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About the Oruhi language</title>
+<meta name="description" content="The world of Oruhi, the reasons for its main design choices, the steps of its construction, and what it does not cover.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<!--gen:nav--><nav class="site" aria-label="Pages"><a class="brand" href="index.html"><span class="ring" lang="x-oruhi">Oruhi</span><span class="sr">Oruhi</span></a><ul><li><a href="index.html">Home</a></li><li><a href="sounds.html">Sounds</a></li><li><a href="script.html">Script</a></li><li><a href="grammar.html">Grammar</a></li><li><a href="numbers.html">Numbers</a></li><li><a href="lexicon.html">Lexicon</a></li><li><a href="texts.html">Texts</a></li><li><a href="tools.html">Tools</a></li><li><a href="about.html" aria-current="page">About</a></li></ul></nav><!--/gen:nav-->
+<main id="main" class="wrap">
+  <p class="kicker">Background</p>
+  <h1>About</h1>
+  <p class="lead">Oruhi is a language for a fictional world. This page explains the world, the choices, and the limits.</p>
+
+  <h2>The world</h2>
+  <p>The world looks like Earth. The people are humanoid. They use bronze tools, clay tablets, and boats. They do not use iron.</p>
+  <p>They live in a long river valley. A sea lies at one end. A great desert lies at the other end.</p>
+  <p>They worship the number zero. For them, zero is not a god with a face. Zero is the empty space that holds all things. They call it <code>Oru</code>. They believe that all things come from zero and return to zero.</p>
+  <p>The priests are the Keepers of the Empty. They also keep the records, because they read and write better than other people. They walk into the desert to pray. The people call the desert the Great Empty.</p>
+  <p>The number one is the first break in the emptiness. The people use numbers with care.</p>
+
+  <h2>The choices and their reasons</h2>
+  <dl class="map">
+    <dt>The vowel o</dt><dd>The mouth makes a round shape for <code>o</code>, like the shape of zero. Only holy words contain it, so the sound marks the holy.</dd>
+    <dt>Base 8</dt><dd>The people count the gaps between their fingers. Eight gaps give base 8. They count the empty space and not the finger.</dd>
+    <dt>Every zero spoken</dt><dd>A people who worship zero do not leave it silent. A number has a spoken digit for each place.</dd>
+    <dt>The zero copula</dt><dd>The language has no verb for "to be". The state of being needs no word, as empty space needs no form.</dd>
+    <dt>The empty ending</dt><dd>The basic form of a word has no ending. Linguists call this a zero morpheme. In Oruhi it is the holiest form.</dd>
+    <dt>Open syllables</dt><dd>Every syllable ends in a vowel. The script needs no sign for a final consonant, so one ring is always one syllable.</dd>
+    <dt>The ring script</dt><dd>The people press a hollow reed into wet clay. The reed leaves a perfect circle. A sharp stick adds the ticks and the marks. This is why each glyph is a ring.</dd>
+    <dt>The spiral</dt><dd>A spiral grows from one center. It shows the world that grows out of zero. Holy texts use it. Records use rows.</dd>
+    <dt>One consonant removed</dt><dd>An early plan had nine consonants, with a separate <code>l</code>. The ring has eight places, so <code>l</code> and <code>r</code> became one sound.</dd>
+  </dl>
+
+  <h2>The steps of the construction</h2>
+  <ol class="plain">
+    <li>The world and its beliefs. These set the main ideas: zero, the ring, and the empty ending.</li>
+    <li>The sounds. A short list of sounds and one rule for open syllables.</li>
+    <li>The script. Shapes for each syllable, and a font that draws them.</li>
+    <li>The affixes and the grammar rules.</li>
+    <li>The number system.</li>
+    <li>The lexicon. A list of meanings first, then a script that gave each meaning a form.</li>
+    <li>The texts. Each text uses only words and affixes of the language.</li>
+    <li>The tools and the check, which test the other steps.</li>
+  </ol>
+
+  <h2>What the language does not cover</h2>
+  <ul class="plain">
+    <li>The language has no history. It has no older stage and no sound changes.</li>
+    <li>It has no dialects, no slang, and no rules for politeness beyond the honorific.</li>
+    <li>The lexicon has <!--gen:count words-->528<!--/gen:count--> words. A real language needs many more.</li>
+    <li>The grammar has no rule yet for clauses inside clauses, for comparison, or for the passive voice.</li>
+    <li>Nobody speaks Oruhi. The author wrote the pronunciation notes and the translations. No native speaker has tested them.</li>
+  </ul>
+
+  <h2>License and source</h2>
+  <p>All files of this project are free software under the GNU General Public License, version 3 or any later version. The full text is in the file <code>LICENSE</code> in the repository.</p>
+  <p><a href="https://github.com/Orpheus-21/oruhi">The source code and the data are on GitHub.</a></p>
+</main>
+<!--gen:footer--><footer class="site"><p>Oruhi is a constructed language. The data, the tools, and this site are free software under the GNU General Public License, version 3 or any later version.</p><p><a href="https://github.com/Orpheus-21/oruhi">Source code on GitHub</a></p></footer><!--/gen:footer-->
+<script src="oruhi.js"></script>
+</body>
+</html>
