@@ -85,7 +85,7 @@ def keys(text):
 
 # ---- SVG ----
 
-def _shape(s):
+def shape_svg(s):
     if s[0] == "ring":
         _, cx, cy, ro, ri = s
         return f'<circle cx="{cx:g}" cy="{cy:g}" r="{(ro + ri) / 2:g}" fill="none" stroke="currentColor" stroke-width="{ro - ri:g}"/>'
@@ -99,14 +99,15 @@ def _shape(s):
 
 
 def _glyph(key, x, y, rot=0.0, scale=1.0):
-    body = "".join(_shape(s) for s in GLYPHS[key])
+    body = "".join(shape_svg(s) for s in GLYPHS[key])
     return f'<g transform="translate({x:.1f} {y:.1f}) rotate({rot:.2f}) scale({scale:g} {-scale:g})">{body}</g>'
 
 
 def _svg(w, h, body, px, color, label):
     size = f' width="{w * px:.0f}" height="{h * px:.0f}"' if px else ""
+    style = f' style="color:{color}"' if color else ""   # no color: the page sets it
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} {h:.0f}"{size} role="img" '
-            f'aria-label="{label}" fill="currentColor" style="color:{color}">{body}</svg>\n')
+            f'aria-label="{label}" fill="currentColor"{style}>{body}</svg>\n')
 
 
 def row_svg(text, per_line=24, px=0.06, color="#2a1d12"):
