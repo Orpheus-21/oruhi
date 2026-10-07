@@ -153,6 +153,7 @@ def build_font(path):
     """Write a TrueType font. Latin text in Oruhi spelling turns into ring glyphs (the `liga` feature)."""
     from fontTools.feaLib.builder import addOpenTypeFeaturesFromString
     from fontTools.fontBuilder import FontBuilder
+    from fontTools.misc.timeTools import epoch_diff
     from fontTools.pens.ttGlyphPen import TTGlyphPen
 
     letters = lang.CONSONANTS + lang.VOWELS
@@ -231,4 +232,7 @@ def build_font(path):
     fb.setupOS2(sTypoAscender=800, sTypoDescender=-200, usWinAscent=800, usWinDescent=200)
     fb.setupPost()
     addOpenTypeFeaturesFromString(fb.font, fea)
+    fixed = 1791331200 - epoch_diff  # a fixed date, so every build gives the same file
+    fb.font["head"].created = fb.font["head"].modified = fixed
+    fb.font.recalcTimestamp = False
     fb.save(path)
