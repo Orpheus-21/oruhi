@@ -1,0 +1,31 @@
+@ At the market
+% A trader and a pilgrim meet at the river market.
+
+> peace you-DAT
+= Trader: Peace to you.
+> also peace you-DAT
+= Pilgrim: Peace to you also.
+> you where-ABL come-PAST
+= Trader: Where did you come from?
+> I great_empty-ABL come-PAST
+= Pilgrim: I came from the Great Empty.
+> you pilgrim q
+= Trader: Are you a pilgrim?
+> yes I pilgrim
+= Pilgrim: Yes, I am a pilgrim.
+> you what-ACC want
+= Trader: What do you want?
+> I bread-ACC want
+= Pilgrim: I want bread.
+> also I water-ACC want
+= Pilgrim: I also want water.
+> bread-GEN price two grain
+= Trader: The price of the bread is two grain.
+> good
+= Pilgrim: Good.
+> three grain-INS I-DAT bread-ACC give-IMP
+= Pilgrim: Give me the bread for three grain.
+> bread-ACC take-IMP
+= Trader: Take the bread.
+> zero you-ACC protect
+= Trader: Zero protects you.

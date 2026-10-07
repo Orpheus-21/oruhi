@@ -1,0 +1,68 @@
+@ Grammar examples
+% One short sentence for each rule of the grammar.
+
+# word order and the zero copula
+> sun bright
+= The sun is bright.
+> woman water-ACC drink
+= The woman drinks water.
+> child bread-ACC eat-PAST
+= The child ate the bread.
+> I river-ACC cross-FUT
+= I will cross the river.
+
+# plural
+> dog-PL run
+= The dogs run.
+> three dog run
+= Three dogs run. The noun stays singular after a number.
+> I-PL walk-FUT
+= We will walk.
+
+# cases
+> man child-DAT bread-ACC give-PAST
+= The man gave bread to the child.
+> I knife-INS bread-ACC cut-PAST
+= I cut the bread with a knife.
+> woman house-LOC sleep
+= The woman sleeps in the house.
+> bird tree-ABL fall-PAST
+= The bird fell from the tree.
+> I friend-COM walk-PAST
+= I walked with a friend.
+> mother-GEN house big
+= The house of the mother is big.
+
+# negation, command, question
+> I fish-ACC eat-NEG
+= I do not eat fish.
+> river flow-PAST-NEG
+= The river did not flow.
+> water-ACC drink-IMP
+= Drink the water!
+> you fish-ACC want q
+= Do you want fish?
+> who river-ACC cross-PAST
+= Who crossed the river?
+> this what
+= What is this?
+
+# words made from verbs
+> hunt-AGENT wolf-ACC kill-PAST
+= The hunter killed the wolf.
+> sing-NMLZ good
+= The singing is good.
+> teach-AGENT-GEN house far
+= The house of the teacher is far.
+
+# the holy register
+> zero empty
+= Zero is empty.
+> zero-HON
+= O Zero.
+> zero you-ACC protect
+= Zero protects you. The verb has no ending, so the sentence is timeless and holy.
+
+# numbers are read digit by digit, and every zero is spoken
+> one zero person walk
+= Eight people walk. The digits one and zero make 10 in base 8, which is eight.

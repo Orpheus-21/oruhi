@@ -1,0 +1,21 @@
+@ The Prayer of the Empty
+% The Keepers say this prayer at dawn. Holy words keep the empty ending where the grammar allows it.
+
+> zero-HON
+= O Zero.
+> zero-HON you empty
+= O Zero, you are empty.
+> zero-HON you endless
+= O Zero, you are endless.
+> zero-HON I-ACC protect-IMP
+= O Zero, protect me.
+> zero-HON I-GEN sin-PL-ACC forgive-IMP
+= O Zero, forgive my sins.
+> I-GEN heart-ACC empty_out-IMP
+= Empty out my heart.
+> silent-NMLZ-INS I-ACC fill-IMP
+= Fill me with silence.
+> I-GEN breath void-DAT return
+= My breath returns to the Void.
+> zero-HON
+= O Zero.

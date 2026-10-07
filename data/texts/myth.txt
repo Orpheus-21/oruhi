@@ -1,0 +1,29 @@
+@ Before the First Break
+% The story that the Keepers tell of the world. It starts in the Void and it ends in the Void.
+
+> void endless
+= The Void is endless.
+> void still
+= The Void is still.
+> then void-LOC breath rise-PAST
+= Then a breath rose in the Void.
+> breath first_break-ACC make-PAST
+= The breath made the First Break.
+> first_break shine-PAST
+= The First Break shone.
+> light shadow-ACC make-PAST
+= The light made the shadow.
+> shadow light-ACC follow-PAST
+= The shadow followed the light.
+> light shadow-COM join-PAST
+= The light joined with the shadow.
+> then ring begin-PAST
+= Then the Ring began.
+> ring finish-NEG
+= The Ring does not finish.
+> person ring-LOC live
+= People live in the Ring.
+> void-ABL all come-PAST
+= All came from the Void.
+> void-DAT all return
+= All return to the Void.

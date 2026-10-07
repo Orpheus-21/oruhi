@@ -4,6 +4,7 @@ The exit code is 1 if any check fails."""
 import sys
 
 import lang
+import texts as Texts
 
 failures = []
 
@@ -56,12 +57,31 @@ def check_numbers(lex):
     ok(lang.say(lex, 8).endswith("Oru"), "the number 8 must speak its zero")
 
 
+def check_texts(lex):
+    """Every sample sentence must compose, and must parse back to the same parts."""
+    try:
+        texts = Texts.load(lex)
+    except (KeyError, ValueError) as err:
+        ok(False, f"a text does not compose: {err}")
+        return
+    ok(texts, "no sample texts found")
+    for t in texts:
+        for s in t["sentences"]:
+            where = f"{t['id']}: {s['tokens']}"
+            ok(s["english"], f"{where}: no English translation")
+            back = lang.gloss(lex, Texts.spelled(s))
+            ok(len(back) == len(s["cols"]), f"{where}: the word count changes on the way back")
+            for a, b in zip(s["cols"], back):
+                ok((a["seg"], a["gloss"], b["count"]) == (b["seg"], b["gloss"], 1), f"{where}: '{a['form']}' does not parse back to one analysis")
+
+
 def main():
     lex = lang.load()
     check_lexicon(lex)
     check_affixes()
     check_words_with_affixes(lex)
     check_numbers(lex)
+    check_texts(lex)
     for f in failures[:40]:
         print("FAIL", f)
     print(f"{len(lex.entries)} words, {len(failures)} failures")
