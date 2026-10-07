@@ -1,0 +1,557 @@
+# Oruhi lexicon. One word for each line. Columns: form, part of speech, gloss, tags, note.
+# Tags: f frequent word (2 syllables), H holy word (contains o), S small (has i), L large (has a), D dark or deep (has u).
+# A blank form is filled by `python3 src/cli.py gen`. A filled form never changes.
+
+# pronouns and question words
+minu	pron	I		
+sutu	pron	you		
+hasa	pron	it		
+pira	pron	this	f	
+tipi	pron	that	f	
+mira	pron	who	f	
+para	pron	what	f	
+tinu	pron	where	f	
+karu	pron	when	f	
+tuhi	pron	why	f	
+uru	pron	how	f	
+nahu	pron	nothing		the plain word for none, and the same form as the negative suffix
+
+# particles
+ma	part	q		ends a yes or no question
+nimu	part	and	f	
+nutu	part	or	f	
+uhi	part	if	f	
+siru	part	because	f	
+mupi	part	but	f	
+huru	part	yes	f	
+hara	part	no	f	
+
+# numbers
+oru	n	zero	H	the number zero and the Void; the holiest word
+kisa	num	one		
+pitu	num	two		
+nuru	num	three		
+hamu	num	four		
+sapi	num	five		
+tuna	num	six		
+rahi	num	seven		
+rusa	num	many	f	
+ahi	num	few	f	
+nuna	num	all	f	
+hunu	num	other	f	
+patu	adj	same	f	
+
+# adverbs
+kutu	adv	now	f	
+manu	adv	then	f	
+sara	adv	always	f	
+mitu	adv	here	f	
+ranu	adv	there	f	
+rira	adv	very	f	
+himu	adv	again	f	
+aru	adv	soon	f	
+tasa	adv	before	f	
+susa	adv	after	f	
+sunu	adv	above	f	
+ipi	adv	below	f	
+punu	adv	inside	f	
+hiru	adv	outside	f	
+mapi	adv	together	f	
+putu	adv	alone	f	
+ura	adv	also	f	
+pamu	adv	only	f	
+nitu	adv	nearly	f	
+pana	adv	once	f	
+
+# verbs of every day
+runu	v	go	f	
+ina	v	come	f	
+munu	v	eat	f	
+kara	v	drink	f	
+tana	v	sleep	f	
+hina	v	see	f	
+nasa	v	hear	f	
+puhi	v	say	f	
+kusa	v	know	f	
+rapi	v	want	f	
+umu	v	give	f	
+maru	v	take	f	
+satu	v	make	f	
+hitu	v	die	f	
+rumu	v	live	f	
+sinu	v	fall	f	
+huna	v	walk	f	
+ramu	v	run	f	
+hana	v	sit	f	
+nira	v	stand	f	
+mina	v	hold	f	
+hahi	v	carry	f	
+nura	v	find	f	
+upi	v	love	f	
+ana	v	fear	f	
+mihi	v	burn	f	
+misa	v	cut	f	
+tusa	v	hit	f	
+tunu	v	sing	f	
+numu	v	call	f	
+hira	v	ask	f	
+kinu	v	answer	f	
+rihi	v	wait	f	
+api	v	begin	f	
+taru	v	return	f	
+kasa	v	enter	f	
+hisa	v	leave	f	
+panu	v	rise	f	
+mimu	v	set	f	
+rasa	v	flow	f	
+pupi	v	shine	f	
+kunu	v	grow	f	
+kuru	v	fill	f	
+nisa	v	open	f	
+sipi	v	close	f	
+tisa	v	break	f	
+tura	v	join	f	
+ira	v	count	f	
+hanapi	v	kill		
+hinuna	v	hunt		
+matina	v	fish_for		
+ritiru	v	plant		
+tuhanu	v	harvest		
+hakupi	v	cook		
+sakitu	v	wash		
+kumura	v	build		
+ripana	v	bury		
+mimuhi	v	mourn		
+rusinu	v	marry		
+rimaru	v	bear_child		
+tusisa	v	teach		
+hapahi	v	learn		
+mihana	v	write		
+pusinu	v	read		
+ihinu	v	trade		
+tasipi	v	buy		
+nihanu	v	sell		
+amamu	v	work		
+pisutu	v	play		
+sahanu	v	dance		
+tiritu	v	laugh		
+muruhi	v	cry		
+tiniru	v	think		
+kiritu	v	remember		
+numipi	v	forget		
+pikasa	v	dream		
+ipanu	v	wake		
+upasa	v	breathe		
+kirinu	v	smell		
+rurasa	v	taste		
+uhina	v	touch		
+munutu	v	push		
+muruna	v	pull		
+nisihi	v	throw		
+narihi	v	catch		
+riharu	v	swim		
+nurutu	v	fly		
+sakatu	v	hide		
+pasutu	v	seek		
+rananu	v	lose		
+hisumu	v	win		
+namira	v	fight		
+punupi	v	protect		
+pahanu	v	attack		
+pasihi	v	rule		
+pipupi	v	serve		
+tihuru	v	follow		
+kapisa	v	lead		
+karimu	v	rest		
+hipura	v	dig		
+tikana	v	weave		
+tiramu	v	mold		
+rinira	v	bake		
+pitara	v	press		
+hipiru	v	measure		
+hatunu	v	divide		
+situsa	v	bind		
+kuhiru	v	free		
+satipi	v	heal		
+tupira	v	hurt		
+hipira	v	bleed		
+kisura	v	bite		
+mihupi	v	steal		
+mukunu	v	share		
+rukuhi	v	welcome		
+sitanu	v	travel		
+murumu	v	cross		
+pukanu	v	climb		
+tasaru	v	descend		
+kakipi	v	blow		
+takasa	v	rain		
+kipumu	v	freeze		
+nukipi	v	melt		
+sihira	v	dry		
+risamu	v	rot		
+turuna	v	guard		
+turipi	v	bring		
+mihahi	v	send		
+ninusa	v	sweep		
+mumapi	v	swear		
+sipiru	v	shape		
+napupi	v	spin		
+sapuhi	v	pour		
+tarihi	v	mix		
+hupina	v	chew		
+tiharu	v	spit		
+humina	v	lift		
+kikahi	v	drop		
+kupina	v	wipe		
+mumana	v	finish		
+nipuhi	v	sew		
+tirahi	v	chop		
+natasa	v	lend		
+patara	v	borrow		
+pihitu	v	owe		
+ramutu	v	pay		
+tahisa	v	praise		
+humara	v	scold		
+tipitu	v	choose		
+papuna	v	decide		
+
+# holy verbs
+mapimo	v	pray	H	
+topusa	v	bless	H	
+kotatu	v	offer	H	
+tirosa	v	fast	H	
+asohi	v	forgive	H	
+komipi	v	worship	H	
+muhino	v	vanish	H	to return to the Void
+ituno	v	empty_out	H	to pour out until nothing is left
+monura	v	curse	H	
+rahotu	v	hallow	H	to set apart as holy
+
+# adjectives
+mahi	adj	big	f L	
+nina	adj	small	f S	
+puna	adj	long	f	
+kina	adj	short	f	
+ara	adj	wide	f	
+samu	adj	narrow	f	
+sanu	adj	thick	f	
+puru	adj	thin	f	
+pina	adj	heavy	f	
+rana	adj	hot	f	
+tiru	adj	cold	f	
+kimu	adj	warm	f	
+hipi	adj	arid	f	
+atu	adj	wet	f	
+hupi	adj	new	f	
+pusa	adj	old	f	
+tapi	adj	young	f	
+papi	adj	good	f	
+saru	adj	bad	f	
+rimu	adj	true	f	
+pihi	adj	false	f	
+muru	adj	red	f	
+namu	adj	black	f	
+miru	adj	white	f	
+musa	adj	green	f	
+tira	adj	blue	f	
+tatu	adj	yellow	f	
+masa	adj	bright	f	
+kumu	adj	dark	f D	
+mara	adj	full	f	
+raru	adj	near	f	
+kamu	adj	far	f	
+hinu	adj	high	f	
+muna	adj	low	f	
+humu	adj	deep	f D	
+nara	adj	shallow	f	
+ruhi	adj	strong	f	
+husa	adj	weak	f	
+nahi	adj	quick	f	
+simu	adj	slow	f	
+kura	adj	hard	f	
+sumu	adj	soft	f	
+kira	adj	smooth	f	
+amu	adj	rough	f	
+tumu	adj	sharp	f	
+pinu	adj	dull	f	
+rura	adj	clean	f	
+nusa	adj	dirty	f	
+hatu	adj	sweet	f	
+rinu	adj	bitter	f	
+usa	adj	alive	f	
+napi	adj	dead	f	
+suhi	adj	loud	f	
+sira	adj	gentle	f	
+mipi	adj	brave	f	
+rupi	adj	wise	f	
+kitu	adj	poor	f	
+rutu	adj	rich	f	
+tihiso	adj	empty	H	holy: the state that is before and after all things
+hunotu	adj	hollow	H	
+okimu	adj	whole	H	holy: complete, like a ring
+tomiru	adj	round	H	
+kinosa	adj	silent	H	
+tohura	adj	still	H	
+okura	adj	pure	H	
+nihuro	adj	endless	H	
+raromu	adj	holy	H	
+kumopi	adj	broken	H	not whole; the first sin
+
+# people
+sisa	n	person	f	
+iru	n	man	f	
+supi	n	woman	f	
+ritu	n	child	f S	
+uminu	n	baby	S	
+pimu	n	mother	f	
+nipi	n	father	f	
+pipuru	n	sibling		
+mapuna	n	elder		
+hapi	n	friend	f	
+supuru	n	enemy		
+titana	n	stranger		
+katapi	n	guest		
+kinaru	n	family		
+hirutu	n	clan		
+mikana	n	neighbor		
+umona	n	ancestor	H	
+nitomu	n	pilgrim	H	one who walks into the Great Empty to pray
+
+# the body
+pisa	n	body	f	
+tanu	n	head	f	
+hahiru	n	face		
+runa	n	eye	f	
+kipi	n	ear	f	
+tina	n	nose	f	
+sina	n	mouth	f	
+hi	n	voice	f	
+tihisa	n	tongue		
+tamupi	n	tooth		
+kupatu	n	neck		
+kasinu	n	shoulder		
+imu	n	arm	f	
+tara	n	hand	f	
+nihi	n	finger	f	
+mahuro	n	gap	H	the empty space between two fingers; the unit of counting
+hakiru	n	nail		
+hahumu	n	chest		
+hura	n	heart	f	
+panura	n	belly		
+pipunu	n	back		
+asa	n	leg	f	
+kisamu	n	knee		
+tahi	n	foot	f	
+ikipi	n	skin		
+iputu	n	bone		
+utu	n	blood	f	
+tupiru	n	hair		
+
+# nature
+tamu	n	sun	f L	
+nanu	n	moon	f	
+risa	n	star	f S	
+pasa	n	sky	f	
+napatu	n	cloud		
+pusimu	n	wind		
+parahi	n	storm		
+nunamu	n	lightning		
+misumu	n	thunder		
+natu	n	fire	f	
+kana	n	water	f	
+tihi	n	earth	f	
+mahuhi	n	stone		
+tanimu	n	sand		
+tuhana	n	dust		
+hupura	n	clay		
+pupiru	n	mud		
+inahi	n	salt		
+simahi	n	mountain	L	
+ahara	n	hill		
+masuhi	n	cliff		
+husunu	n	cave	D	
+kiru	n	river	f	
+risatu	n	lake		
+sakimu	n	sea	L	
+tapapi	n	wave		
+nahuru	n	island		
+mahina	n	shore		
+kurunu	n	valley		
+hupamu	n	plain		
+napusa	n	desert		
+sutaru	n	forest		
+ninu	n	tree	f	
+nurasa	n	root		
+kuhatu	n	branch		
+namutu	n	leaf		
+hirupi	n	seed		
+kirira	n	flower		
+simusa	n	grass		
+sipisa	n	reed		
+ritapi	n	fruit		
+supuna	n	grain		
+sisana	n	field		
+rusisa	n	smoke		
+kutura	n	ash		
+nuhara	n	ice		
+hurunu	n	snow		
+hasusa	n	night	D	
+naru	n	day	f	
+nunitu	n	dawn		
+ripuru	n	dusk		
+tamamu	n	season		
+mamuna	n	year		
+pipana	n	month		
+pupira	n	flood		
+rikumu	n	drought		
+kukira	n	spring		
+kasara	n	well		
+kamino	n	great_empty	H	the desert that the people hold as holy ground
+ohisa	n	void	H	the empty space between things
+opiru	n	ring	H	the circle; the sign of zero
+okupi	n	first_break	H	the number one; the first break in the Void
+amumo	n	breath	H	
+hakito	n	shadow	H	
+ahomu	n	light	H	
+nosura	n	eternity	H	the ring that has no end
+mihino	n	temple	H	
+konutu	n	shrine	H	
+raposa	n	altar	H	
+uhuso	n	vow	H	
+tinonu	n	ritual	H	
+ruhumo	n	sin	H	a break in the wholeness
+tiraso	n	soul	H	
+hakohi	n	spirit	H	
+kirapo	n	holy_day	H	
+
+# animals
+hutusa	n	animal		
+mamu	n	dog	f	
+nutunu	n	cat		
+sura	n	bird	f	
+ratu	n	fish	f	
+kisisa	n	snake		
+munahi	n	ox		
+timura	n	goat		
+ratitu	n	sheep		
+putapi	n	horse		
+panatu	n	donkey		
+arinu	n	mouse	S	
+hakasa	n	insect		
+satuna	n	bee		
+misipi	n	ant	S	
+nuhapi	n	wolf		
+minuhi	n	bear		
+mikura	n	lion		
+rusahi	n	deer		
+irupi	n	hare		
+rutahi	n	crocodile		
+mahamu	n	heron		
+nutuhi	n	frog		
+kuhahi	n	turtle		
+tiripi	n	wing		
+pukamu	n	feather		
+nakara	n	horn		
+nirumu	n	tail		
+rarinu	n	egg		
+hatisa	n	nest		
+
+# the house and the village
+nuhi	n	house	f	
+susahi	n	door		
+kuranu	n	wall		
+makaru	n	roof		
+tisunu	n	hearth		
+nusuru	n	bed		
+katu	n	road	f	
+sanapi	n	bridge		
+sihi	n	boat	f	
+rakura	n	oar		
+hinupi	n	sail		
+nakuhi	n	net		
+muratu	n	rope		
+katitu	n	basket		
+kisira	n	jar		
+tarusa	n	pot		
+hunaru	n	bowl		
+tapitu	n	lamp		
+simaru	n	torch		
+kituhi	n	mat		
+murahi	n	village		
+nihuru	n	city		
+pasupi	n	harbor		
+pasura	n	granary		
+ripatu	n	market		
+pusaru	n	tablet		
+pumiru	n	stamp		
+saminu	n	mark		
+samitu	n	line		
+ruhimu	n	dot		
+kahuru	n	spiral		
+suhuru	n	number		
+nitipi	n	sign		
+arira	n	tool		
+puparu	n	knife		
+manuna	n	axe		
+huhahi	n	spear		
+rusaru	n	bow		
+tanupi	n	arrow		
+hakutu	n	shield		
+mukaru	n	hammer		
+hunusa	n	needle		
+mikusa	n	hook		
+urunu	n	seal		
+pirira	n	mirror		
+atumu	n	cloth		
+mipahi	n	thread		
+pukana	n	bread		
+ahipi	n	beer		
+mimapi	n	honey		
+kihahi	n	oil		
+karipi	n	wine		
+putatu	n	meat		
+mukitu	n	milk		
+nakinu	n	food		
+sumasa	n	flock		
+tamanu	n	gift		
+huhitu	n	law		
+unipi	n	story		
+tupi	n	name	f	
+kuhi	n	word	f	
+kimusa	n	language		
+tapuru	n	bronze		
+hirasa	n	copper		
+ruturu	n	gold		
+sirimu	n	wheel		
+sunuhi	n	plow		
+naripi	n	kiln		
+kihuhi	n	loom		
+tipimu	n	scale		
+
+# abstract things
+una	n	time	f	
+haru	n	place	f	
+punahi	n	truth		
+suhusa	n	falsehood		
+kakuna	n	luck		
+maranu	n	fate		
+tipahi	n	peace		
+minina	n	war		
+usaru	n	joy		
+rinuhi	n	sorrow		
+kikuna	n	anger		
+pirusa	n	hope		
+tatinu	n	shame		
+tinanu	n	honor		
+inutu	n	debt		
+nakimu	n	pain		
+kapanu	n	hunger		
+pisinu	n	thirst		
+nirusa	n	strength		
+kimamu	n	wisdom		
+tisinu	n	part		
+pasitu	n	half		
+pumamu	n	price		
+kimana	n	danger		
+nihasa	n	secret		
+oruhi	n	oruhi	H	the language, the voice of zero
