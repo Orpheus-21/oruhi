@@ -4,6 +4,7 @@ import argparse
 import sys
 
 import lang
+import script
 
 
 def table(cols):
@@ -52,6 +53,22 @@ def cmd_number(lex, args):
     print(f"Oruhi   {lang.say(lex, n)}")
 
 
+def cmd_ring(lex, args):
+    svg = (script.spiral_svg if args.spiral else script.row_svg)(args.text)
+    if args.output:
+        open(args.output, "w", encoding="utf-8").write(svg)
+    else:
+        sys.stdout.write(svg)
+
+
+def cmd_font(lex, args):
+    try:
+        script.build_font(args.output)
+    except ImportError:
+        sys.exit("the font build needs fonttools: python3 -m venv .venv && .venv/bin/pip install fonttools")
+    print(f"wrote {args.output}")
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="cli.py", description="Tools for the Oruhi language.")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -68,6 +85,14 @@ def main(argv=None):
     s = sub.add_parser("number", help="show a number in base 10, base 8, and Oruhi")
     s.add_argument("value", help="a decimal number, or Oruhi digit words in quotes")
     s.set_defaults(run=cmd_number)
+    s = sub.add_parser("ring", help="write text in the ring script as an SVG image")
+    s.add_argument("text")
+    s.add_argument("--spiral", action="store_true", help="write a spiral, not rows")
+    s.add_argument("-o", "--output", help="the SVG file; the default is the screen")
+    s.set_defaults(run=cmd_ring)
+    s = sub.add_parser("font", help="build the ring script font (needs fonttools)")
+    s.add_argument("-o", "--output", default=str(lang.ROOT / "docs" / "fonts" / "oruhi-ring.ttf"))
+    s.set_defaults(run=cmd_font)
     args = p.parse_args(argv)
     args.run(lang.load(), args)
 

@@ -19,6 +19,7 @@ CONSONANTS = "ptkmnshr"
 VOWELS = "aiuo"
 ORDINARY = "aiu"
 SYLLABLE = re.compile(r"[ptkmnshr]?[aiuo]")
+SYLLABLES = [c + v for c in CONSONANTS for v in VOWELS] + list(VOWELS)  # 36 in all
 FINALS = ["pi", "tu", "mu", "nu", "sa", "hi", "ra", "ru", "na"]  # a root ends in one of these
 
 # Affixes: label -> (form, meaning). Every affix is a suffix.

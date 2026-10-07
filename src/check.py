@@ -2,8 +2,11 @@
 The exit code is 1 if any check fails."""
 
 import sys
+import tempfile
+from pathlib import Path
 
 import lang
+import script
 import texts as Texts
 
 failures = []
@@ -75,6 +78,38 @@ def check_texts(lex):
                 ok((a["seg"], a["gloss"], b["count"]) == (b["seg"], b["gloss"], 1), f"{where}: '{a['form']}' does not parse back to one analysis")
 
 
+def check_script(lex):
+    """Every syllable in use needs a glyph, and no two glyphs may look the same."""
+    words = [e.form for e in lex.entries] + [f for f, _ in lang.AFFIX.values()]
+    for w in words:
+        for syl in lang.syllables(w):
+            ok(syl in script.GLYPHS, f"the syllable '{syl}' in '{w}' has no glyph")
+    ok(len(script.GLYPHS) == len(lang.SYLLABLES) + 8 + 1, "the glyph count is wrong")
+    ok(len(set(script.TICK.values())) == len(lang.CONSONANTS) == 8, "the 8 consonants need 8 different ring places")
+    looks = {}
+    for key, shapes in script.GLYPHS.items():
+        ok(repr(shapes) not in looks, f"the glyphs '{key}' and '{looks.get(repr(shapes))}' look the same")
+        looks[repr(shapes)] = key
+
+
+def check_font():
+    """Build the font and test that the ligatures exist. Needs fonttools; skipped without it."""
+    try:
+        from fontTools.ttLib import TTFont
+    except ImportError:
+        print("skipped the font check: fonttools is not installed")
+        return
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "test.ttf"
+        script.build_font(path)
+        font = TTFont(path)
+    ligatures = sum(len(v) for lk in font["GSUB"].table.LookupList.Lookup for st in lk.SubTable if hasattr(st, "ligatures") for v in st.ligatures.values())
+    ok(ligatures == len(lang.CONSONANTS) * len(lang.VOWELS), f"the font has {ligatures} ligatures, not 32")
+    ok(font["name"].getDebugName(1) == "Oruhi Ring", "the font family name is wrong")
+    cmap = font.getBestCmap()
+    ok(all(cmap.get(ord(d)) for d in "01234567"), "a digit has no glyph")
+
+
 def main():
     lex = lang.load()
     check_lexicon(lex)
@@ -82,6 +117,8 @@ def main():
     check_words_with_affixes(lex)
     check_numbers(lex)
     check_texts(lex)
+    check_script(lex)
+    check_font()
     for f in failures[:40]:
         print("FAIL", f)
     print(f"{len(lex.entries)} words, {len(failures)} failures")
