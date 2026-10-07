@@ -1,0 +1,72 @@
+"""Check the whole language. Run: python3 src/check.py
+The exit code is 1 if any check fails."""
+
+import sys
+
+import lang
+
+failures = []
+
+
+def ok(condition, message):
+    if not condition:
+        failures.append(message)
+
+
+def check_lexicon(lex):
+    forms, glosses = {}, {}
+    for e in lex.entries:
+        ok(e.form, f"'{e.gloss}' has no form")
+        ok(e.pos in lang.POS, f"'{e.gloss}' has the unknown part of speech '{e.pos}'")
+        ok(lang.legal(e.form), f"'{e.gloss}': the form '{e.form}' breaks the syllable rules")
+        tags = e.tags.split()
+        ok(("H" in tags) == lang.holy(e.form), f"'{e.gloss}': the o rule fails for '{e.form}'")
+        ok("S" not in tags or "i" in e.form, f"'{e.gloss}' is tagged S but '{e.form}' has no i")
+        ok("L" not in tags or "a" in e.form, f"'{e.gloss}' is tagged L but '{e.form}' has no a")
+        ok("D" not in tags or "u" in e.form, f"'{e.gloss}' is tagged D but '{e.form}' has no u")
+        ok(e.form not in forms, f"'{e.gloss}' and '{forms.get(e.form)}' share the form '{e.form}'")
+        ok(e.gloss not in glosses, f"the gloss '{e.gloss}' is used twice")
+        forms[e.form], glosses[e.gloss] = e.gloss, True
+    ok(len(lex.entries) >= 500, f"the lexicon has {len(lex.entries)} words; the goal is 500")
+
+
+def check_affixes():
+    forms = [f for f, _ in lang.AFFIX.values()]
+    ok(len(set(forms)) == len(forms), "two affixes share one form")
+    for label, (f, _) in lang.AFFIX.items():
+        ok(lang.legal(f), f"the affix {label} '{f}' breaks the syllable rules")
+    for label in lang.DERIVE | {c for slot in lang.NOUN_SLOTS + lang.VERB_SLOTS for c in slot}:
+        ok(label in lang.AFFIX, f"the slot label {label} has no affix")
+
+
+def check_words_with_affixes(lex):
+    """Every legal affix chain must spell a legal word that parses back to one analysis."""
+    for e in lex.entries:
+        for labels in lang.chains(e.pos):
+            word = e.form + "".join(lang.AFFIX[label][0] for label in labels)
+            ok(lang.legal(word), f"'{e.gloss}' with {labels} gives the illegal word '{word}'")
+            found = lang.analyses(lex, word)
+            ok(found == [(e, labels)], f"'{word}' ({e.gloss} {labels}) parses as {[(x.gloss, l) for x, l in found]}")
+
+
+def check_numbers(lex):
+    for n in range(4096):
+        ok(lang.read(lex, lang.say(lex, n)) == n, f"the number {n} does not read back")
+    ok(lang.say(lex, 0) == "Oru", "zero must be spoken as Oru")
+    ok(lang.say(lex, 8).endswith("Oru"), "the number 8 must speak its zero")
+
+
+def main():
+    lex = lang.load()
+    check_lexicon(lex)
+    check_affixes()
+    check_words_with_affixes(lex)
+    check_numbers(lex)
+    for f in failures[:40]:
+        print("FAIL", f)
+    print(f"{len(lex.entries)} words, {len(failures)} failures")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
