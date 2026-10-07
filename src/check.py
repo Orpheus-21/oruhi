@@ -28,6 +28,8 @@ def check_lexicon(lex):
         ok("S" not in tags or "i" in e.form, f"'{e.gloss}' is tagged S but '{e.form}' has no i")
         ok("L" not in tags or "a" in e.form, f"'{e.gloss}' is tagged L but '{e.form}' has no a")
         ok("D" not in tags or "u" in e.form, f"'{e.gloss}' is tagged D but '{e.form}' has no u")
+        last = lang.syllables(e.form)[-1]
+        ok(e.form == "nahu" or last not in {lang.syllables(f)[-1] for f, _ in lang.AFFIX.values()}, f"'{e.gloss}' ends in the last syllable of an affix")
         ok(e.form not in forms, f"'{e.gloss}' and '{forms.get(e.form)}' share the form '{e.form}'")
         ok(e.gloss not in glosses, f"the gloss '{e.gloss}' is used twice")
         forms[e.form], glosses[e.gloss] = e.gloss, True

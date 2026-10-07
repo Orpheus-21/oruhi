@@ -33,6 +33,24 @@
 > mother-GEN house big
 = The house of the mother is big.
 
+# adjectives and adverbs
+> woman big house-ACC build-PAST
+= The woman built a big house.
+> river deep-PAST
+= The river was deep.
+> I always here sleep
+= I always sleep here.
+
+# joining clauses
+> I bread-ACC eat and water-ACC drink
+= I eat bread and drink water.
+> you fish-ACC or meat-ACC want q
+= Do you want fish or meat?
+> rain-FUT if I house-LOC sit-FUT
+= If it rains, I will sit in the house.
+> hunger because I bread-ACC eat-PAST
+= I ate bread because I was hungry.
+
 # negation, command, question
 > I fish-ACC eat-NEG
 = I do not eat fish.
@@ -58,6 +76,8 @@
 # the holy register
 > zero empty
 = Zero is empty.
+> zero-GEN guard-AGENT pilgrim-ACC welcome-PAST
+= The Keeper of the Empty welcomed the pilgrim.
 > zero-HON
 = O Zero.
 > zero you-ACC protect
